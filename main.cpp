@@ -1,24 +1,44 @@
-#include "head.h"
+#include "ui.h"
 
 using namespace std;
 
 int main(){
-    list_stud daftarSiswa;
-    list_class daftarKelas;
-    createListStud(daftarSiswa);
-    createListClass(daftarKelas);
 
-    infotype_stud siswa;
-    siswa.id = 1;
-    siswa.name = "Budi";
-    infotype_class kelas;
-    insertLastStud(daftarSiswa,allocate_stud(siswa));
-    insertLastClass(daftarKelas,allocate_class(kelas));
 
-    cout << "List saat ini :" << endl;
-    printClass(daftarKelas);
-    printStud(daftarSiswa);
-    cout << endl;
+    // membuat list terlebih dahulu
+    list_stud list_manager;
+    list_class list_karyawan;
+
+    // membuat list
+    createListStud(list_manager);
+    createListClass(list_karyawan);
+
+    int x;
+    do {
+        x = menuUtama();
+        switch(x) {
+            case 1 : {
+                cout << " " << endl;
+                tambahManager(list_manager);
+            }
+                break;
+            case 2 : {
+                cout << " " << endl;
+                tambahKaryawan(list_karyawan);
+            } 
+                break;
+            case 9 : {
+                lihatManager(list_manager);
+            }
+                break;
+            case 10 : {
+                lihatKaryawan(list_karyawan);
+            }
+                break;
+            default:
+                break;
+        }
+    } while(x != 12);
 
 
     return 0;
