@@ -12,6 +12,10 @@ void createListRelasiStud(list_relasi_stud &R) {
     R.first = NULL;
     R.last  = NULL;
 };
+void createListRelasiClass(list_relasi_class &C) {
+    C.first = NULL;
+    C.last = NULL;
+};
 // End CreateList Function
 
 // Allocate Function
@@ -33,6 +37,13 @@ adr_relasi_ke_kelas allocate_relationSatu(adr_class x) {
     P -> next = NULL;
     P -> prev = NULL;
     P -> next_class = x;
+    return P;
+};
+adr_relasi_ke_stud allocate_relationDua(adr_stud x) {
+    adr_relasi_ke_stud P = new relasi_ke_stud;
+    P -> next = NULL;
+    P -> prev = NULL;
+    P -> next_stud = x;
     return P;
 };
 // End Allocate Function
@@ -235,13 +246,52 @@ void insertFirstRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P) {
         L.first = P;
     };
 };
-void insertLastRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P);
+void insertLastRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P) {
+    if (L.first == NULL && L.last == NULL) {
+        L.first = P;
+        L.last = P;
+    } 
+    else {
+        P->prev = L.last;
+        L.last->next = P;
+        L.last = P;
+    };
+};
 // Akhir Function untuk insert
 
+
 // Function untuk delete
-void deleteLastRelasiStud(list_relasi_stud &L);
-void deleteFirstRelasiStud(list_relasi_stud &L);
+void deleteFirstRelasiStud(list_relasi_stud &L) {
+    if(L.first == NULL && L.last == NULL) {
+        cout << "Empty" << endl;
+    } else if (L.first == L.last) {
+        L.first = NULL;
+        L.last = NULL;
+    } else {
+        adr_relasi_ke_kelas P = L.first;
+        L.first = P->next;
+        P->next = NULL;
+        L.first->prev = NULL;
+    }
+};
+void deleteLastRelasiStud(list_relasi_stud &L) {
+    if(L.first == NULL && L.last == NULL) {
+        cout << "Empty" << endl;
+    } else if (L.first == L.last) {
+        L.first = NULL;
+        L.last = NULL;
+    } else {
+        adr_relasi_ke_kelas P = L.last;
+        L.last = P->prev;
+        P->prev = NULL;
+        L.last->next = NULL;
+    }
+};
 // Akhir Function untuk delete
-adr_relasi_ke_kelas searchRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P);
+
+
+adr_relasi_ke_kelas searchRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P) {
+
+};
 void printRelasiStud(list_relasi_stud &L);
 // Akhir Kumpulan Function untuk relasi ke kelas

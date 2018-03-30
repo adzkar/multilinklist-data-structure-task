@@ -13,26 +13,44 @@ struct infotype_class {
 typedef struct elm_stud*adr_stud;
 typedef struct elm_class*adr_class;
 typedef struct relasi_ke_kelas*adr_relasi_ke_kelas;
+typedef struct relasi_ke_stud*adr_relasi_ke_stud;
 
+
+// List untuk relasinya
 struct list_relasi_stud {
     adr_relasi_ke_kelas first;
     adr_relasi_ke_kelas last;
 };
+struct list_relasi_class {
+    adr_relasi_ke_kelas first;
+    adr_relasi_ke_kelas last;
+};
+// Akhir list untuk relasinya
+
 struct elm_stud {
     infotype_stud info;
     adr_stud next;
     adr_stud prev;
-    list_relasi_stud relasi_class;
+    list_relasi_stud relasi_stud;
 };
 struct elm_class {
     infotype_class info;
     adr_class next;
+    list_relasi_class relasi_class;
 };
+
+// Elemen untuk relasinya
 struct relasi_ke_kelas {
     adr_class next_class;
     adr_relasi_ke_kelas next;
     adr_relasi_ke_kelas prev;
 };
+struct relasi_ke_stud {
+    adr_stud next_stud;
+    adr_relasi_ke_stud next;
+    adr_relasi_ke_stud prev;
+};
+// Akhir untuk elemen relasinya
 
 struct list_stud {
     adr_stud first;
@@ -46,11 +64,14 @@ struct list_class {
 void createListStud(list_stud &S);
 void createListClass(list_class &C);
 void createListRelasiStud(list_relasi_stud &R);
+void createListRelasiClass(list_relasi_class &C);
+// Akhir dari createlist
 
 // Allocate function
 adr_stud allocate_stud(infotype_stud x);
 adr_class allocate_class(infotype_class x);
 adr_relasi_ke_kelas allocate_relationSatu(adr_class x);
+adr_relasi_ke_stud allocate_relationDua(adr_stud x);
 // end Allocate function
 
 
