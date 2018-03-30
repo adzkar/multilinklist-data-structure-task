@@ -27,6 +27,10 @@ int main(){
                 tambahKaryawan(list_karyawan);
             } 
                 break;
+            case 3 : {
+                managerPilihKaryawan(list_manager, list_karyawan);
+            }
+                break;
             case 9 : {
                 lihatManager(list_manager);
             }
@@ -35,10 +39,20 @@ int main(){
                 lihatKaryawan(list_karyawan);
             }
                 break;
-            default:
+            case 11 : {
+                karyawanByManager(list_manager);
+            }
+                break;
+            case 13 : {
+                banyakManagerKaryawan(list_manager, list_karyawan);    
+            }
+                break;
+            default: {
+                    x = menuUtama();
+            }
                 break;
         }
-    } while(x != 12);
+    } while(x != 14);
 
 
     return 0;

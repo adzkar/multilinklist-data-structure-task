@@ -130,12 +130,25 @@ void printStud(list_stud &S){
         adr_stud P = S.first;
         int i = 1;
         while (P != NULL) {
-            cout << "#" << i << ". " << P->info.id << " " << P->info.name << endl;
+            cout << "#" << i << ". " << P->info.id << " " << P->info.nama << endl;
             P = P -> next;
         }
     };
 };
     // Akhir function untuk print stud
+
+// Function untuk menghitung total data
+int banyakStud(list_stud &S) {
+    int total = 0;
+    if(S.first != NULL && S.last != NULL) {
+        adr_stud P = S.first;
+        while(P != NULL) {
+            P = P->next;
+            total++;
+        }
+    }
+    return total;
+};
 
 // Akhir kumpulan Function untuk student
 
@@ -200,9 +213,9 @@ void deleteLastClass(list_class &C, adr_class P) {
 
 
     // Function untuk searching class
-adr_class search_class(list_class &L, string kelas){
+adr_class search_class(list_class &L, string id){
     adr_class Q = L.first;
-    while (Q != NULL && Q->info.nama != kelas) {
+    while (Q != NULL && Q->info.id != id) {
         Q = Q -> next;
     };
     if (Q == NULL){
@@ -221,15 +234,33 @@ void printClass(list_class &C){
         cout << "Empty List" << endl;
     } else {
         adr_class P = C.first;
+        int i = 1;
         while (P != NULL) {
-            cout << P -> info.nama << endl;
+            cout << "#" << i << ". "<< P->info.id << "    " << P -> info.nama << endl;
             P = P -> next;
+            i++;
         }
     };
 };
     // Akhir function untuk print class
 
+// Function untuk menghitung total class
+int banyakClass(list_class &C) {
+    int total = 0;
+    if(C.first != NULL) {
+        adr_class P = C.first;
+        while(P != NULL) {
+            P = P->next;
+            total++;
+        }
+    }
+    return total;
+};
+
+
 // Akhir Kumpulan Function untuk Class
+
+
 
 
 // Kumpulan Function untuk relasi ke Kelas
@@ -293,7 +324,19 @@ void deleteLastRelasiStud(list_relasi_stud &L) {
 adr_relasi_ke_kelas searchRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P) {
 
 };
-void printRelasiStud(list_relasi_stud &L);
+void printRelasiStud(list_relasi_stud &L) {
+    if (L.first != NULL && L.last != NULL) {
+        adr_relasi_ke_kelas P = L.first;
+        int i = 1;
+        while(P != NULL) {
+            cout << "#" << i << ". " << P->next_class->info.id << "     "  << P->next_class->info.nama << endl;
+            P = P->next;
+            i++;
+        };
+    } else {
+        cout << "Empty List" << endl;
+    }
+};
 // Akhir Kumpulan Function untuk relasi ke kelas
 
 
@@ -336,7 +379,7 @@ void deleteFirstRelasiClass(list_relasi_class &L) {
         L.first->prev = NULL;
     }
 };
-void deleteLastRelasClass(list_relasi_class &L) {
+void deleteLastRelasCilass(list_relasi_class &L) {
     if(L.first == NULL && L.last == NULL) {
         cout << "Empty" << endl;
     } else if (L.first == L.last) {

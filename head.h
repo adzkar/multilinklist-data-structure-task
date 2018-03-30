@@ -1,13 +1,15 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 struct infotype_stud {
     string id;
-    string name;
+    string nama;
 };
 struct infotype_class {
+    string id;
     string nama;
 };
 typedef struct elm_stud*adr_stud;
@@ -82,6 +84,7 @@ void deleteFirstStud(list_stud &S);
 void deleteLastStud(list_stud &S);
 adr_stud search_stud(list_stud &S, string id);
 void printStud(list_stud &S);
+int banyakStud(list_stud &S);
 // Akhir kumpulan Function untuk student
 
 // Kumpulan Function untuk Class
@@ -89,8 +92,9 @@ void insertFirstClass(list_class &C, adr_class P);
 void insertLastClass(list_class &C, adr_class P);
 void deleteFirstClass(list_class &C, adr_class P);
 void deleteLastClass(list_class &C, adr_class P);
-adr_class search_class(list_class &L, string nama);
+adr_class search_class(list_class &L, string id);
 void printClass(list_class &C);
+int banyakClass(list_class &C);
 // Akhir Kumpulan Function untuk Class
 
 
@@ -108,7 +112,7 @@ void printRelasiStud(list_relasi_stud &L);
 void insertFirstRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
 void insertLastRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
 void deleteFirstRelasiClass(list_relasi_class &L);
-void deleteLastRelasClass(list_relasi_class &L);
+void deleteLastRelasCilass(list_relasi_class &L);
 adr_relasi_ke_stud searchRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
 void printRelasiClass(list_relasi_stud &L);
 // Akhir Kumpulan Function untuk relasi ke Stud

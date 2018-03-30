@@ -4,11 +4,20 @@ using namespace std;
 
 int menuUtama();
 
-// untuk menambah manager
+// untuk menambah data
 void tambahManager(list_stud &L);
 void tambahKaryawan(list_class &list_karyawan);
 
 
-// untuk melihat manager
+// untuk melihat data
 void lihatManager(list_stud &list_manager); 
 void lihatKaryawan(list_class &list_karyawan);
+void karyawanByManager(list_stud &list_manager);
+
+// Untuk melihat total data
+void banyakManagerKaryawan(list_stud &list_manager, list_class &list_karyawan);
+
+
+// function untuk mengatur relasi
+void managerPilihKaryawan(list_stud list_manager, list_class list_karyawan);
+void karyawanPilihManager(list_class list_karyawan, list_stud list_manager);
