@@ -234,7 +234,7 @@ void printClass(list_class &C){
 
 // Kumpulan Function untuk relasi ke Kelas
 
-// Function untuk insert
+    // Function untuk insert
 void insertFirstRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P) {
     if (L.first == NULL && L.last == NULL) {
         L.first = P;
@@ -257,10 +257,10 @@ void insertLastRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P) {
         L.last = P;
     };
 };
-// Akhir Function untuk insert
+    // Akhir Function untuk insert
 
 
-// Function untuk delete
+    // Function untuk delete
 void deleteFirstRelasiStud(list_relasi_stud &L) {
     if(L.first == NULL && L.last == NULL) {
         cout << "Empty" << endl;
@@ -287,7 +287,7 @@ void deleteLastRelasiStud(list_relasi_stud &L) {
         L.last->next = NULL;
     }
 };
-// Akhir Function untuk delete
+    // Akhir Function untuk delete
 
 
 adr_relasi_ke_kelas searchRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P) {
@@ -295,3 +295,63 @@ adr_relasi_ke_kelas searchRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P)
 };
 void printRelasiStud(list_relasi_stud &L);
 // Akhir Kumpulan Function untuk relasi ke kelas
+
+
+// Kumpulan Function untuk relasi ke Stud
+
+    // Function insert
+void insertFirstRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P) {
+    if(L.first == NULL && L.last == NULL) {
+        L.first = NULL;
+        L.last = NULL;
+    } else {
+        P->next = L.first;
+        L.first->prev = P;
+        L.first = P;
+    }
+};
+void insertLastRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P) {
+    if(L.first == NULL && L.last == NULL) {
+        L.first = NULL;
+        L.last = NULL;
+    } else {
+        P->prev = L.last;
+        L.last->next = P;
+        L.last = P;
+    }
+};
+    // Akhir function insert
+
+    // Function Delete
+void deleteFirstRelasiClass(list_relasi_class &L) {
+    if(L.first == NULL && L.last == NULL) {
+        cout << "Empty" << endl;
+    } else if (L.first == L.last) {
+        L.first = NULL;
+        L.last = NULL;
+    } else {
+        adr_relasi_ke_stud P = L.first;
+        L.first = P->next;
+        P->next = NULL;
+        L.first->prev = NULL;
+    }
+};
+void deleteLastRelasClass(list_relasi_class &L) {
+    if(L.first == NULL && L.last == NULL) {
+        cout << "Empty" << endl;
+    } else if (L.first == L.last) {
+        L.first = NULL;
+        L.last = NULL;
+    } else {
+        adr_relasi_ke_stud P = L.last;
+        L.last = P->prev;
+        P->prev = NULL;
+        L.last->next = NULL;
+    }
+};
+    // Akhir Function Delete
+
+    
+adr_relasi_ke_stud searchRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
+void printRelasiClass(list_relasi_stud &L);
+// Akhir Kumpulan Function untuk relasi ke Stud

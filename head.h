@@ -22,8 +22,8 @@ struct list_relasi_stud {
     adr_relasi_ke_kelas last;
 };
 struct list_relasi_class {
-    adr_relasi_ke_kelas first;
-    adr_relasi_ke_kelas last;
+    adr_relasi_ke_stud first;
+    adr_relasi_ke_stud last;
 };
 // Akhir list untuk relasinya
 
@@ -46,9 +46,9 @@ struct relasi_ke_kelas {
     adr_relasi_ke_kelas prev;
 };
 struct relasi_ke_stud {
-    adr_stud next_stud;
     adr_relasi_ke_stud next;
     adr_relasi_ke_stud prev;
+    adr_stud next_stud;
 };
 // Akhir untuk elemen relasinya
 
@@ -103,6 +103,15 @@ adr_relasi_ke_kelas searchRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P)
 void printRelasiStud(list_relasi_stud &L);
 // Akhir Kumpulan Function untuk relasi ke kelas
 
+
+// Kumpulan Function untuk relasi ke Stud
+void insertFirstRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
+void insertLastRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
+void deleteFirstRelasiClass(list_relasi_class &L);
+void deleteLastRelasClass(list_relasi_class &L);
+adr_relasi_ke_stud searchRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
+void printRelasiClass(list_relasi_stud &L);
+// Akhir Kumpulan Function untuk relasi ke Stud
 
 void setClass(list_stud L1, list_class L2, string id, string kelas);
 void del_class(list_stud L1, list_class L2, string kelas);
