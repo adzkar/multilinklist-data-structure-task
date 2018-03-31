@@ -31,6 +31,14 @@ int main(){
                 managerPilihKaryawan(list_manager, list_karyawan);
             }
                 break;
+            case 7 : {
+                updateDataManager(list_manager);
+            }
+                break;
+            case 8 : {
+                updateDataKaryawan(list_karyawan);
+            }
+                break;
             case 9 : {
                 lihatManager(list_manager);
             }

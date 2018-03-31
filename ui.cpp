@@ -19,8 +19,8 @@ int menuUtama() {
     cout << "#4  Karyawan Memilih Manager" << endl;
     cout << "#5  Hapus Karyawan" << endl;
     cout << "#6  Hapus Manager" << endl;
-    cout << "#7  Update Data Karyawan" << endl;
-    cout << "#8  Update Data Manager" << endl;
+    cout << "#7  Update Data Manager" << endl;
+    cout << "#8  Update Data Karyawan" << endl;
     cout << "#9  Lihat Manager" << endl;
     cout << "#10 Lihat Karyawan" << endl;
     cout << "#11 Lihat Karyawan berdasarkan Manager" << endl;
@@ -153,3 +153,88 @@ void managerPilihKaryawan(list_stud list_manager, list_class list_karyawan) {
 
 
 void karyawanPilihManager(list_class list_karyawan, list_stud list_manager);
+// Akhir function untuk mengatur relasi
+
+
+
+
+// Function untuk update data
+void updateDataManager(list_stud &list_manager) {
+    string id_manager;
+    cout << " " << endl;
+    cout << "== Pilih Manager yang Ingin diupdate ==" << endl;
+    cout << " " << endl;
+    printStud(list_manager);
+    cout << " " << endl;
+    cout << " Input ID : ";cin >> id_manager;
+    adr_stud cariManager = search_stud(list_manager, id_manager);
+    if(cariManager != 0) {
+        int opsi;
+        cout << " " << endl;
+        cout << "Opsi yang ingin di update : " << endl;
+        cout << " " << endl;
+        cout << " #1 ID" << endl;
+        cout << " #2 Nama" << endl;
+        cout << " " << endl;
+        cout << "Input [ Input dengan Angka ] : ";cin >> opsi;
+        switch(opsi) {
+            case 1 : {
+                cout << "Input ID Terbaru : ";
+                cin >> cariManager->info.id;
+            }
+                break;
+            case 2 : {
+                cout << "Input Nama Terbaru : ";
+                cin >> cariManager->info.nama;
+            }
+                break;
+            default: {
+                cout << " Invalid Input" << endl;
+            }
+                break;
+        }
+    } else {
+        cout << "ID tidak ditemukan" << endl;
+    }
+    anyKey();
+}
+void updateDataKaryawan(list_class &list_karyawan) {
+    string id_karyawan;
+    cout << " " << endl;
+    cout << "== Pilih Karyawan yang Ingin diupdate ==" << endl;
+    cout << " " << endl;
+    printClass(list_karyawan);
+    cout << " " << endl;
+    cout << " Input ID : ";cin >> id_karyawan;
+    adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);
+    if(cariKaryawan != 0) {
+        int opsi;
+        cout << " " << endl;
+        cout << "Opsi yang ingin di update : " << endl;
+        cout << " " << endl;
+        cout << " #1 ID" << endl;
+        cout << " #2 Nama" << endl;
+        cout << " " << endl;
+        cout << "Input [ Input dengan Angka ] : ";cin >> opsi;
+        switch(opsi) {
+            case 1 : {
+                cout << "Input ID Terbaru : ";
+                cin >> cariKaryawan->info.id;
+            }
+                break;
+            case 2 : {
+                cout << "Input Nama Terbaru : ";
+                cin >> cariKaryawan->info.nama;
+            }
+                break;
+            default: {
+                cout << " Invalid Input" << endl;
+            }
+                break;
+        }
+    } else {
+        cout << "ID tidak ditemukan" << endl;
+    }
+    anyKey();
+};
+// Akhir function untuk update data

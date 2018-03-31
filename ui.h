@@ -21,3 +21,9 @@ void banyakManagerKaryawan(list_stud &list_manager, list_class &list_karyawan);
 // function untuk mengatur relasi
 void managerPilihKaryawan(list_stud list_manager, list_class list_karyawan);
 void karyawanPilihManager(list_class list_karyawan, list_stud list_manager);
+
+
+// Function untuk update data
+void updateDataManager(list_stud &list_manager);
+void updateDataKaryawan(list_class &list_karyawan);
+// Akhir function untuk update data
