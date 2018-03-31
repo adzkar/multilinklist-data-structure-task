@@ -114,7 +114,7 @@ void insertLastRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
 void deleteFirstRelasiClass(list_relasi_class &L);
 void deleteLastRelasCilass(list_relasi_class &L);
 adr_relasi_ke_stud searchRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
-void printRelasiClass(list_relasi_stud &L);
+void printRelasiClass(list_relasi_class &L);
 // Akhir Kumpulan Function untuk relasi ke Stud
 
 void setClass(list_stud L1, list_class L2, string id, string kelas);

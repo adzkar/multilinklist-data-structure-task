@@ -24,6 +24,7 @@ int menuUtama() {
     cout << "#9  Lihat Manager" << endl;
     cout << "#10 Lihat Karyawan" << endl;
     cout << "#11 Lihat Karyawan berdasarkan Manager" << endl;
+    cout << "#12 Lihat Manager berdasarkan Karyawan" << endl;
     cout << "#13 Lihat Jumlah Karyawan dan Manager" << endl;
     cout << "#14 Keluar" << endl;
     cout << "" << endl;
@@ -84,6 +85,7 @@ void lihatKaryawan(list_class &list_karyawan) {
     cout << " " << endl;
     anyKey();
 }
+
 void karyawanByManager(list_stud &list_manager) {
     string id_manager;
     cout << "==  Lihat Karyawan berdasarkan Manager ==" << endl;
@@ -94,6 +96,22 @@ void karyawanByManager(list_stud &list_manager) {
     adr_stud cariManager = search_stud(list_manager, id_manager);    
     if(cariManager != 0) {
         printRelasiStud(cariManager->relasi_stud);
+    } else {
+        cout << "ID Tidak Ditemukan" << endl;
+    }
+    anyKey();
+};
+
+void managerByKaryawan(list_class &list_karyawan) {
+    string id_karyawan;
+    cout << "==  Lihat Manager berdasarkan Karyawan ==" << endl;
+    cout << " " << endl;
+    lihatKaryawan(list_karyawan);
+    cout << "Pilih Karyawan [ Input ID ] : ";
+    cin >> id_karyawan;
+    adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);    
+    if(cariKaryawan != 0) {
+        printRelasiClass(cariKaryawan->relasi_class);
     } else {
         cout << "ID Tidak Ditemukan" << endl;
     }
@@ -122,7 +140,7 @@ void managerPilihKaryawan(list_stud list_manager, list_class list_karyawan) {
     if(banyakStud(list_manager) > 0 && banyakClass(list_karyawan) > 0) {
         // proses input data
         string id_karyawan, id_manager;
-        cout << "== Daftar Karyawan ==" << endl;
+        cout << "== Daftar Manager ==" << endl;
         cout << " " << endl;
         printStud(list_manager);
         cout << "Pilih Manager [ Input ID ] : ";
@@ -152,7 +170,38 @@ void managerPilihKaryawan(list_stud list_manager, list_class list_karyawan) {
 };
 
 
-void karyawanPilihManager(list_class list_karyawan, list_stud list_manager);
+void karyawanPilihManager(list_class list_karyawan, list_stud list_manager) {
+    if(banyakStud(list_manager) > 0 && banyakClass(list_karyawan) > 0) {
+        // proses input data
+        string id_karyawan, id_manager;
+        cout << "== Daftar Karyawan ==" << endl;
+        printClass(list_karyawan);    
+        cout << " " << endl;
+        cout << "Pilih Karyawan [ Input ID ] : ";
+        cin >> id_karyawan; 
+        cout << " " << endl;
+        cout << "== Daftar Manager ==" << endl;
+        cout << " " << endl;
+        printStud(list_manager);
+        cout << "Pilih Manager [ Input ID ] : ";
+        cin >> id_manager;
+        // proses searching berdasarkan id_karyawan dan id_manager
+        adr_stud cariManager = search_stud(list_manager, id_manager);
+        adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);
+        if(cariKaryawan != 0 && cariManager != 0) {
+            adr_relasi_ke_stud P = allocate_relationDua(cariManager);
+            if (cariKaryawan->relasi_class.first == 0) {
+                createListRelasiClass(cariKaryawan->relasi_class);
+            }
+            insertFirstRelasiClass(cariKaryawan->relasi_class, P);
+        } else {
+            cout << "ID tidak ditemukan" << endl;
+        }
+    } else {
+        cout << "Input Manager dan Karyawan terlebih dahulu" << endl;
+    }
+    anyKey();
+};
 // Akhir function untuk mengatur relasi
 
 

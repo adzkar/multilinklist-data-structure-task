@@ -13,6 +13,7 @@ void tambahKaryawan(list_class &list_karyawan);
 void lihatManager(list_stud &list_manager); 
 void lihatKaryawan(list_class &list_karyawan);
 void karyawanByManager(list_stud &list_manager);
+void managerByKaryawan(list_class &list_karyawan);
 
 // Untuk melihat total data
 void banyakManagerKaryawan(list_stud &list_manager, list_class &list_karyawan);

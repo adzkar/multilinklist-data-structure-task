@@ -132,6 +132,7 @@ void printStud(list_stud &S){
         while (P != NULL) {
             cout << "#" << i << ". " << P->info.id << " " << P->info.nama << endl;
             P = P -> next;
+            i++;
         }
     };
 };
@@ -396,5 +397,18 @@ void deleteLastRelasCilass(list_relasi_class &L) {
 
     
 adr_relasi_ke_stud searchRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
-void printRelasiClass(list_relasi_stud &L);
+
+void printRelasiClass(list_relasi_class &L) {
+    if (L.first != NULL && L.last != NULL) {
+        adr_relasi_ke_stud P = L.first;
+        int i = 1;
+        while(P != NULL) {
+            cout << "#" << i << ". " << P->next_stud->info.id << "     "  << P->next_stud->info.nama << endl;
+            P = P->next;
+            i++;
+        };
+    } else {
+        cout << "Empty List" << endl;
+    }
+};
 // Akhir Kumpulan Function untuk relasi ke Stud
