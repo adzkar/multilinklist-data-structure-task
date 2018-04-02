@@ -14,8 +14,9 @@ int main(){
     createListClass(list_karyawan);
 
     int x;
-    do {
-        x = menuUtama();
+    x = menuUtama();
+
+    while(x != 14) {
         switch(x) {
             case 1 : {
                 cout << " " << endl;
@@ -63,13 +64,9 @@ int main(){
                 banyakManagerKaryawan(list_manager, list_karyawan);    
             }
                 break;
-            default: {
-                    x = menuUtama();
-            }
-                break;
         }
-    } while(x != 14);
-
+        x = menuUtama();        
+    }
 
     return 0;
 };
