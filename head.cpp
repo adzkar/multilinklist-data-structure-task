@@ -105,6 +105,15 @@ void deleteLastStud(list_stud &S) {
         S.last->next = NULL;
     }
 };
+void deleteIni(list_stud &S, adr_stud P) {
+    adr_stud A,B;
+    A = P->prev;
+    B = P->next;
+    P->prev = NULL;
+    P->next = NULL;
+    A->next = B;
+    B->prev = A;
+};
     // Akhir Function Delete Stud
 
 
@@ -336,6 +345,15 @@ void deleteLastRelasiStud(list_relasi_stud &L) {
         L.last->next = NULL;
     }
 };
+void deleteIniRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P) {
+    adr_relasi_ke_kelas A,B;
+    A = P->prev;
+    B = P->next;
+    P->next = NULL;
+    P->prev = NULL;
+    A->next = B;
+    B->prev = A;
+};
     // Akhir Function untuk delete
 
 
@@ -410,12 +428,12 @@ void deleteLastRelasCilass(list_relasi_class &L) {
         L.last->next = NULL;
     }
 };
-void deleteIni(list_stud &S, adr_stud P) {
-    adr_stud A,B;
+void deleteIniRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P) {
+    adr_relasi_ke_stud A,B;
     A = P->prev;
     B = P->next;
-    P->prev = NULL;
     P->next = NULL;
+    P->prev = NULL;
     A->next = B;
     B->prev = A;
 };

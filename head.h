@@ -105,6 +105,7 @@ void insertFirstRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P);
 void insertLastRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P);
 void deleteLastRelasiStud(list_relasi_stud &L);
 void deleteFirstRelasiStud(list_relasi_stud &L);
+void deleteIniRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P);
 adr_relasi_ke_kelas searchRelasiStud(list_relasi_stud &L, adr_relasi_ke_kelas P);
 void printRelasiStud(list_relasi_stud &L);
 // Akhir Kumpulan Function untuk relasi ke kelas
@@ -115,6 +116,7 @@ void insertFirstRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
 void insertLastRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
 void deleteFirstRelasiClass(list_relasi_class &L);
 void deleteLastRelasCilass(list_relasi_class &L);
+void deleteIniRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
 adr_relasi_ke_stud searchRelasiClass(list_relasi_class &L, adr_relasi_ke_stud P);
 void printRelasiClass(list_relasi_class &L);
 // Akhir Kumpulan Function untuk relasi ke Stud

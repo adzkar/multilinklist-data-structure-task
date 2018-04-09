@@ -37,11 +37,11 @@ int main(){
             }
                 break;
             case 5 : {
-                hapusKaryawan(list_karyawan);
+                hapusKaryawan(list_karyawan, list_manager);
             }
                 break;
             case 6 : {
-                hapusManager(list_manager);
+                hapusManager(list_manager, list_karyawan);
             }
                 break;
             case 7 : {

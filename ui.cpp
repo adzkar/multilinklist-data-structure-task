@@ -290,7 +290,7 @@ void updateDataKaryawan(list_class &list_karyawan) {
 
 
 // Function untuk hapus
-void hapusManager(list_stud &list_manager) {
+void hapusManager(list_stud &list_manager, list_class &list_karyawan) {
     string id_manager;
     cout << " " << endl;
     cout << "== List Manager ==" << endl;
@@ -300,6 +300,24 @@ void hapusManager(list_stud &list_manager) {
     // proses pencarian data
     adr_stud cariManager = search_stud(list_manager, id_manager);
     if(cariManager != NULL) {
+        // Hapus Relasi
+        adr_class P = list_karyawan.first;
+        while(P != NULL) {
+            adr_relasi_ke_stud Q = P->relasi_class.first;
+            while(Q != NULL) {
+                if(Q->next_stud == cariManager) {
+                   if(Q == P->relasi_class.first) {
+                       deleteFirstRelasiClass(P->relasi_class);
+                   } else if (Q == P->relasi_class.last) {
+                       deleteLastRelasCilass(P->relasi_class);
+                   } else {
+                       deleteIniRelasiClass(P->relasi_class, Q);
+                   }
+                }
+                Q = Q->next;
+            }
+            P = P->next;
+        }
         // proses penghapus elemen
         if(cariManager == list_manager.first) {
             deleteFirstStud(list_manager);
@@ -310,7 +328,7 @@ void hapusManager(list_stud &list_manager) {
         }
     }
 };
-void hapusKaryawan(list_class &list_karyawan) {
+void hapusKaryawan(list_class &list_karyawan, list_stud &list_manager) {
     string id_karyawan;
     cout << " " << endl;
     cout << "== List Karyawan ==" << endl;
@@ -321,6 +339,24 @@ void hapusKaryawan(list_class &list_karyawan) {
     adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);
     adr_class entah;
     if(cariKaryawan != NULL) {
+        // Hapus Relasi
+        adr_stud P = list_manager.first;
+        while(P != NULL) {
+            adr_relasi_ke_kelas Q = P->relasi_stud.first;
+            while(Q != NULL) {
+                if(Q->next_class == cariKaryawan) {
+                   if(Q == P->relasi_stud.first) {
+                       deleteFirstRelasiStud(P->relasi_stud);
+                   } else if (Q == P->relasi_stud.last) {
+                       deleteLastRelasiStud(P->relasi_stud);
+                   } else {
+                       deleteIniRelasiStud(P->relasi_stud, Q);
+                   }
+                }
+                Q = Q->next;
+            }
+            P = P->next;
+        }
         // proses penghapus elemen
         if(cariKaryawan == list_karyawan.first) {
             deleteFirstClass(list_karyawan, entah);
