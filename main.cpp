@@ -36,6 +36,14 @@ int main(){
                 karyawanPilihManager(list_karyawan, list_manager);
             }
                 break;
+            case 5 : {
+                hapusKaryawan(list_karyawan);
+            }
+                break;
+            case 6 : {
+                hapusManager(list_manager);
+            }
+                break;
             case 7 : {
                 updateDataManager(list_manager);
             }

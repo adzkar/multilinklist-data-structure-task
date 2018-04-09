@@ -28,3 +28,8 @@ void karyawanPilihManager(list_class list_karyawan, list_stud list_manager);
 void updateDataManager(list_stud &list_manager);
 void updateDataKaryawan(list_class &list_karyawan);
 // Akhir function untuk update data
+
+// Function untuk hapus data
+void hapusManager(list_stud &list_manager);
+void hapusKaryawan(list_class &list_karyawan);
+// akhir function untuk hapus data

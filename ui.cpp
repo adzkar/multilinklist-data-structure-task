@@ -287,3 +287,48 @@ void updateDataKaryawan(list_class &list_karyawan) {
     anyKey();
 };
 // Akhir function untuk update data
+
+
+// Function untuk hapus
+void hapusManager(list_stud &list_manager) {
+    string id_manager;
+    cout << " " << endl;
+    cout << "== List Manager ==" << endl;
+    cout << " " << endl;
+    printStud(list_manager);
+    cout << " Input ID : ";cin >> id_manager;
+    // proses pencarian data
+    adr_stud cariManager = search_stud(list_manager, id_manager);
+    if(cariManager != NULL) {
+        // proses penghapus elemen
+        if(cariManager == list_manager.first) {
+            deleteFirstStud(list_manager);
+        } else if (cariManager == list_manager.last) {
+            deleteLastStud(list_manager);
+        } else {
+            deleteIni(list_manager, cariManager);   
+        }
+    }
+};
+void hapusKaryawan(list_class &list_karyawan) {
+    string id_karyawan;
+    cout << " " << endl;
+    cout << "== List Karyawan ==" << endl;
+    cout << " " << endl;
+    printClass(list_karyawan);
+    cout << " Input ID : ";cin >> id_karyawan;
+    // proses pencarian data
+    adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);
+    adr_class entah;
+    if(cariKaryawan != NULL) {
+        // proses penghapus elemen
+        if(cariKaryawan == list_karyawan.first) {
+            deleteFirstClass(list_karyawan, entah);
+        } else if (cariKaryawan->next == NULL) {
+            deleteLastClass(list_karyawan, entah);
+        } else {
+            deleteIniDua(list_karyawan, cariKaryawan);
+        }
+    }
+};
+// Akhir function untuk hapus

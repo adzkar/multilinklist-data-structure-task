@@ -210,6 +210,23 @@ void deleteLastClass(list_class &C, adr_class P) {
         P->next = NULL;
     }
 };
+void deleteIniDua(list_class &C, adr_class P) {
+    if (C.first == NULL) {
+        cout << "Empty" << endl;
+    } else if (C.first == P) {
+        C.first = NULL;
+    } else if (P->next == NULL) {
+        adr_class entah;
+        deleteLastClass(C, entah);
+    } else {
+        adr_class A = C.first;
+        while (A->next != P){
+            A = A->next;
+        };
+        A->next = P->next;
+        P = NULL;
+    }
+};
     // Akhir Function untuk delete
 
 
@@ -392,6 +409,15 @@ void deleteLastRelasCilass(list_relasi_class &L) {
         P->prev = NULL;
         L.last->next = NULL;
     }
+};
+void deleteIni(list_stud &S, adr_stud P) {
+    adr_stud A,B;
+    A = P->prev;
+    B = P->next;
+    P->prev = NULL;
+    P->next = NULL;
+    A->next = B;
+    B->prev = A;
 };
     // Akhir Function Delete
 
