@@ -1,4 +1,5 @@
 #include "ui.h"
+// #include "sort.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ int main(){
     int x;
     x = menuUtama();
 
-    while(x != 14) {
+    while(x != 15) {
         switch(x) {
             case 1 : {
                 cout << " " << endl;
@@ -70,6 +71,10 @@ int main(){
                 break;
             case 13 : {
                 banyakManagerKaryawan(list_manager, list_karyawan);    
+            }
+                break;
+            case 14 : {
+                sortingManager(list_manager);
             }
                 break;
         }

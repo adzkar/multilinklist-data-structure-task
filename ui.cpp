@@ -26,7 +26,8 @@ int menuUtama() {
     cout << "#11 Lihat Karyawan berdasarkan Manager" << endl;
     cout << "#12 Lihat Manager berdasarkan Karyawan" << endl;
     cout << "#13 Lihat Jumlah Karyawan dan Manager" << endl;
-    cout << "#14 Keluar" << endl;
+    cout << "#14 Sorting Manager" << endl;
+    cout << "#15 Keluar" << endl;
     cout << "" << endl;
     cout << "Pilih [ Dengan mengisi angka ] : ";
     int x;

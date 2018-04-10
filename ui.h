@@ -1,4 +1,5 @@
-#include "head.h"
+// #include "head.h"
+#include "sort.h"    
 
 using namespace std;
 
