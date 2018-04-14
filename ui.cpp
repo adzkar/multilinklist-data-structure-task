@@ -48,6 +48,7 @@ void tambahManager(list_stud &list_manager) {
     adr_stud P = allocate_stud(manager);
     insertFirstStud(list_manager, P);
     anyKey();
+    clrscr();
 }
 void tambahKaryawan(list_class &list_karyawan) {
     // variable yang dibutuhkan
@@ -60,6 +61,7 @@ void tambahKaryawan(list_class &list_karyawan) {
     adr_class P = allocate_class(karyawan);
     insertFirstClass(list_karyawan, P);
     anyKey();
+    clrscr();
 }
 
 
@@ -74,6 +76,7 @@ void lihatManager(list_stud &list_manager) {
     }
     cout << " " << endl;
     anyKey();
+    clrscr();
 }
 void lihatKaryawan(list_class &list_karyawan) {
     cout << "== Daftar Karyawan ==" << endl;
@@ -85,6 +88,7 @@ void lihatKaryawan(list_class &list_karyawan) {
     }    
     cout << " " << endl;
     anyKey();
+    clrscr();
 }
 
 void karyawanByManager(list_stud &list_manager) {
@@ -101,6 +105,7 @@ void karyawanByManager(list_stud &list_manager) {
         cout << "ID Tidak Ditemukan" << endl;
     }
     anyKey();
+    clrscr();
 };
 
 void managerByKaryawan(list_class &list_karyawan) {
@@ -117,6 +122,7 @@ void managerByKaryawan(list_class &list_karyawan) {
         cout << "ID Tidak Ditemukan" << endl;
     }
     anyKey();
+    clrscr();
 };
 // Akhir Function untuk Lihat Data
 
@@ -133,6 +139,7 @@ void banyakManagerKaryawan(list_stud &list_manager, list_class &list_karyawan) {
     cout << "Total Karyawan : " << banyakClass(list_karyawan) << endl;
     cout << " " << endl;
     anyKey();
+    clrscr();
 }
 
 
@@ -168,6 +175,7 @@ void managerPilihKaryawan(list_stud list_manager, list_class list_karyawan) {
         cout << "Input Manager dan Karyawan terlebih dahulu" << endl;
     }
     anyKey();
+    clrscr();
 };
 
 
@@ -202,6 +210,7 @@ void karyawanPilihManager(list_class list_karyawan, list_stud list_manager) {
         cout << "Input Manager dan Karyawan terlebih dahulu" << endl;
     }
     anyKey();
+    clrscr();
 };
 // Akhir function untuk mengatur relasi
 
@@ -247,6 +256,7 @@ void updateDataManager(list_stud &list_manager) {
         cout << "ID tidak ditemukan" << endl;
     }
     anyKey();
+    clrscr();
 }
 void updateDataKaryawan(list_class &list_karyawan) {
     string id_karyawan;
@@ -286,6 +296,7 @@ void updateDataKaryawan(list_class &list_karyawan) {
         cout << "ID tidak ditemukan" << endl;
     }
     anyKey();
+    clrscr();
 };
 // Akhir function untuk update data
 
