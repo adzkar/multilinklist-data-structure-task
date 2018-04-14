@@ -1,3 +1,5 @@
 .vscode
 main
 *.exe
+testing.cpp
+testing

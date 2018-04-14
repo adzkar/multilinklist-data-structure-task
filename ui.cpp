@@ -4,8 +4,9 @@
 void anyKey(void) {
     cout << " " << endl;
     cout << "   [PRESS ANY KEY TO CONTINUE]" << endl;
-    cin.ignore();
     cin.get();
+    cin.ignore();
+    clrscr();
 };
 
 
@@ -43,8 +44,11 @@ void tambahManager(list_stud &list_manager) {
     // proses input
     cout << "== Tambah Manager ==" << endl;
     cout << " " << endl;
-    cout << "ID     : ";cin >> manager.id;
-    cout << "Nama   : ";cin >> manager.nama;
+    cin.ignore();
+    cout << "ID     : ";getline(cin, manager.id);
+    // cin >> manager.id;
+    cout << "Nama   : ";getline(cin, manager.nama);
+    // cin >> manager.nama;
     adr_stud P = allocate_stud(manager);
     insertFirstStud(list_manager, P);
     anyKey();
@@ -56,8 +60,11 @@ void tambahKaryawan(list_class &list_karyawan) {
     // proses input
     cout << "== Tambah karyawan ==" << endl;
     cout << " " << endl;
-    cout << "ID     : ";cin >> karyawan.id;
-    cout << "Nama   : ";cin >> karyawan.nama;
+    cin.ignore();
+    cout << "ID     : ";getline(cin, karyawan.id);
+    // cin >> karyawan.id;
+    cout << "Nama   : ";getline(cin, karyawan.nama);
+    // cin >> karyawan.nama;
     adr_class P = allocate_class(karyawan);
     insertFirstClass(list_karyawan, P);
     anyKey();
@@ -97,7 +104,8 @@ void karyawanByManager(list_stud &list_manager) {
     cout << " " << endl;
     lihatManager(list_manager);
     cout << "Pilih Manager [ Input ID ] : ";
-    cin >> id_manager;
+    // cin >> id_manager;
+    getline(cin, id_manager);
     adr_stud cariManager = search_stud(list_manager, id_manager);    
     if(cariManager != 0) {
         printRelasiStud(cariManager->relasi_stud);
@@ -114,7 +122,8 @@ void managerByKaryawan(list_class &list_karyawan) {
     cout << " " << endl;
     lihatKaryawan(list_karyawan);
     cout << "Pilih Karyawan [ Input ID ] : ";
-    cin >> id_karyawan;
+    // cin >> id_karyawan;
+    getline(cin, id_karyawan);
     adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);    
     if(cariKaryawan != 0) {
         printRelasiClass(cariKaryawan->relasi_class);
@@ -152,13 +161,15 @@ void managerPilihKaryawan(list_stud list_manager, list_class list_karyawan) {
         cout << " " << endl;
         printStud(list_manager);
         cout << "Pilih Manager [ Input ID ] : ";
-        cin >> id_manager;
+        // cin >> id_manager;
+        getline(cin, id_manager);
         cout << " " << endl;
         cout << "== Daftar Karyawan ==" << endl;
         cout << " " << endl;
         printClass(list_karyawan);    
         cout << "Pilih Karyawan [ Input ID ] : ";
-        cin >> id_karyawan; 
+        // cin >> id_karyawan; 
+        getline(cin, id_karyawan);
         // proses searching berdasarkan id_karyawan dan id_manager
         adr_stud cariManager = search_stud(list_manager, id_manager);
         adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);
@@ -187,13 +198,15 @@ void karyawanPilihManager(list_class list_karyawan, list_stud list_manager) {
         printClass(list_karyawan);    
         cout << " " << endl;
         cout << "Pilih Karyawan [ Input ID ] : ";
-        cin >> id_karyawan; 
+        // cin >> id_karyawan; 
+        getline(cin, id_karyawan);
         cout << " " << endl;
         cout << "== Daftar Manager ==" << endl;
         cout << " " << endl;
         printStud(list_manager);
         cout << "Pilih Manager [ Input ID ] : ";
-        cin >> id_manager;
+        getline(cin, id_manager);
+        // cin >> id_manager;
         // proses searching berdasarkan id_karyawan dan id_manager
         adr_stud cariManager = search_stud(list_manager, id_manager);
         adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);
@@ -225,7 +238,9 @@ void updateDataManager(list_stud &list_manager) {
     cout << " " << endl;
     printStud(list_manager);
     cout << " " << endl;
-    cout << " Input ID : ";cin >> id_manager;
+    cout << " Input ID : ";
+    // cin >> id_manager;
+    getline(cin, id_manager);
     adr_stud cariManager = search_stud(list_manager, id_manager);
     if(cariManager != 0) {
         int opsi;
@@ -239,12 +254,14 @@ void updateDataManager(list_stud &list_manager) {
         switch(opsi) {
             case 1 : {
                 cout << "Input ID Terbaru : ";
-                cin >> cariManager->info.id;
+                // cin >> cariManager->info.id;
+                getline(cin, cariManager->info.id);
             }
                 break;
             case 2 : {
                 cout << "Input Nama Terbaru : ";
-                cin >> cariManager->info.nama;
+                // cin >> cariManager->info.nama;
+                getline(cin, cariManager->info.nama);
             }
                 break;
             default: {
@@ -265,7 +282,8 @@ void updateDataKaryawan(list_class &list_karyawan) {
     cout << " " << endl;
     printClass(list_karyawan);
     cout << " " << endl;
-    cout << " Input ID : ";cin >> id_karyawan;
+    cout << " Input ID : ";getline(cin, id_karyawan);
+    // cin >> id_karyawan;
     adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);
     if(cariKaryawan != 0) {
         int opsi;
@@ -279,12 +297,14 @@ void updateDataKaryawan(list_class &list_karyawan) {
         switch(opsi) {
             case 1 : {
                 cout << "Input ID Terbaru : ";
-                cin >> cariKaryawan->info.id;
+                // cin >> cariKaryawan->info.id;
+                getline(cin, cariKaryawan->info.id);
             }
                 break;
             case 2 : {
                 cout << "Input Nama Terbaru : ";
-                cin >> cariKaryawan->info.nama;
+                // cin >> cariKaryawan->info.nama;
+                getline(cin, cariKaryawan->info.nama);
             }
                 break;
             default: {
@@ -308,7 +328,8 @@ void hapusManager(list_stud &list_manager, list_class &list_karyawan) {
     cout << "== List Manager ==" << endl;
     cout << " " << endl;
     printStud(list_manager);
-    cout << " Input ID : ";cin >> id_manager;
+    cout << " Input ID : ";getline(cin, id_manager);
+    // cin >> id_manager;
     // proses pencarian data
     adr_stud cariManager = search_stud(list_manager, id_manager);
     if(cariManager != NULL) {
@@ -346,7 +367,8 @@ void hapusKaryawan(list_class &list_karyawan, list_stud &list_manager) {
     cout << "== List Karyawan ==" << endl;
     cout << " " << endl;
     printClass(list_karyawan);
-    cout << " Input ID : ";cin >> id_karyawan;
+    cout << " Input ID : ";getline(cin, id_karyawan);
+    // cin >> id_karyawan;
     // proses pencarian data
     adr_class cariKaryawan = search_class(list_karyawan, id_karyawan);
     adr_class entah;
