@@ -9,6 +9,7 @@ Implementation M-M
 ## Spesifikasi
 
 **Deskripsi** 
+
 Mengelola sebuah multi linked-list yang memodelkan karyawan bank dengan manager dan
 hubungan antara keduanya. Seorang karyawan bank bisa memiliki lebih dari satu manager, dan
 seorang manager bisa membawahi lebih dari satu karyawan bank. Program anda harus
